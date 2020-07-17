@@ -1,0 +1,50 @@
+@import "../../../node_modules/bootstrap-scss/bootstrap-reboot";
+@import "../bootstrap-override";
+@import "../../../node_modules/bootstrap-scss/bootstrap-grid";
+@import "../vars";
+@import "../color-matrix";
+@import "../fonts";
+@import "../typography";
+@import "../mixins";
+@import "../general";
+@import "header";
+@import "../footer";
+@import "main-post";
+@import "reviews";
+@import "latest-posts";
+@import "categories";
+@import "tags";
+
+.main {
+  background-color: $white;
+
+  &__main-block {
+    @extend .row;
+
+    @media screen and (max-width: $sm-width) {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__left-block {
+    @extend .col-xl-7;
+  }
+
+  &__aside {
+    @extend .col-xl-5;
+  }
+}
+
+.aside {
+  &__item {
+    margin-bottom: 70px;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #fcf6f6;
+
+    &:first-of-type {
+      margin-top: 172px;
+    }
+  }
+}

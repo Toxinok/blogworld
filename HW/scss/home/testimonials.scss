@@ -1,0 +1,145 @@
+.testimonials {
+  height: 529px;
+  background: url(../../img/home/bg-testimonial.png);
+
+  &__title {
+    &-block {
+      text-align: center;
+      padding-top: 80px;
+
+      @media screen and (max-width: $sm-width) {
+        padding-top: 50px;
+      }
+    }
+
+    &-underline {
+      @include create-underline(135px);
+
+      margin-bottom: 55px;
+    }
+  }
+
+  &__main-block {
+    @extend .row;
+
+    position: relative;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: $sm-width) {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  &__user-review {
+    margin: 0 10px;
+  }
+}
+
+.user-review {
+  @extend .row;
+  @extend .col-xl-6;
+
+  filter: drop-shadow(0 8px 25px rgba(109, 109, 109, 0.5));
+
+  &__left-block {
+    border-radius: 5px 0 0 5px;
+    width: 50%;
+    height: 265px;
+    background-color: #494a4d;
+    color: $white;
+  }
+
+  &__text-block {
+    position: relative;
+    margin: 54px 0 0 48px;
+    width: 70%;
+
+    @media screen and (max-width: $sm-width) {
+      margin: 15px 0 0 15px;
+      width: 85%;
+    }
+
+    &::before {
+      content: '\0022';
+      position: absolute;
+      top: -22px;
+      left: -19px;
+      font-size: 35px;
+      font-style: italic;
+      height: 20px;
+      width: 12px;
+    }
+  }
+
+  &__quote {
+    margin-bottom: 37px;
+    font-weight: $semi-bold-weight;
+    line-height: 26px;
+
+    @media screen and (max-width: $sm-width) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__position {
+    display: block;
+    font-weight: $light-weight;
+  }
+
+  &__image {
+    width: 50%;
+    height: 265px;
+  }
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #867070;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dots__wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.active,
+.dot:hover {
+  background-color: #d8b5b5;
+}

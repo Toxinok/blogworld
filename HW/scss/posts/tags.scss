@@ -1,0 +1,14 @@
+.tags {
+  padding: 30px 24px 15px 30px !important;
+
+  &__title {
+    @extend .latest-posts__title;
+  }
+
+  &__button {
+    margin: 0 10px 15px 0;
+    height: 35px;
+    padding: 0 15px;
+    line-height: 35px;
+  }
+}

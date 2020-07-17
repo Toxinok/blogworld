@@ -1,0 +1,51 @@
+.header {
+  @extend .row;
+
+  line-height: 28px;
+
+  @media screen and (max-width: $sm-width) {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  &__company-name {
+    @extend .col-xl-4;
+
+    display: inline-block;
+
+    &-text {
+      font-weight: bold;
+    }
+  }
+
+  & .button {
+    margin: -8px 0 0 38px;
+    padding-top: 10px;
+  }
+
+  &__menu {
+    padding-left: 25px;
+  }
+}
+
+.menu {
+  @extend .col-xl-6;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__item {
+    color: $font-color;
+
+    @media screen and (max-width: $sm-width) {
+      width: 33%;
+    }
+
+    &:hover {
+      & .menu__item-text {
+        text-decoration: underline;
+      }
+    }
+  }
+}

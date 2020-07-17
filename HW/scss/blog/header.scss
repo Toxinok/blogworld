@@ -1,0 +1,16 @@
+@import "../header";
+
+.header {
+  height: 80px;
+  line-height: 80px;
+
+  & .button {
+    margin-top: 17px;
+  }
+
+  @media screen and (max-width: $sm-width) {
+    margin: 0;
+    height: 100%;
+    text-align: center;
+  }
+}

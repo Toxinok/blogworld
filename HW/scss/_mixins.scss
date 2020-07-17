@@ -1,0 +1,50 @@
+@mixin create-underline($width) {
+  position: relative;
+  display: block;
+  margin: 0 auto 16px;
+  width: $width - 6px;
+  height: 8px;
+  border: 1px solid #4d4949;
+  border-top: none;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 1px;
+    background-color: #4d4949;
+  }
+
+  &::before {
+    left: -3px;
+  }
+
+  &::after {
+    right: -3px;
+  }
+}
+
+@mixin title-block($underline-width) {
+  &__title {
+    display: block;
+    margin-bottom: 2px;
+
+    &-block {
+      @extend .col-xl-5;
+
+      margin: 0 auto 60px;
+      padding-top: 80px;
+      text-align: center;
+    }
+
+    &-underline {
+      @include create-underline($underline-width);
+    }
+  }
+
+  &__text {
+    line-height: 26px;
+  }
+}

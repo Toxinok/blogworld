@@ -1,0 +1,112 @@
+.portfolio {
+  @include title-block(163px);
+
+  & .container {
+    overflow-x: hidden;
+  }
+
+  &__title-block {
+    padding-top: 79px;
+  }
+
+  &__main-block {
+    margin-left: -420px;
+
+    @media screen and (max-width: $sm-width) {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  .transition {
+    transition: all 1s;
+  }
+
+  &__button {
+    &-block {
+      @extend .row;
+      @extend .col-xl-4;
+
+      justify-content: space-between;
+      margin: 40px auto;
+      padding: 0 13px;
+    }
+
+    &-all {
+      &-wrapper {
+        text-align: center;
+        padding-bottom: 60px;
+      }
+    }
+  }
+}
+
+.site-card {
+  @extend .col-xl-4;
+
+  display: inline-block;
+  width: 400px;
+  height: 244px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &__corner-block {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    display: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+    line-height: 60px;
+    text-align: center;
+  }
+
+  &:hover {
+    filter: drop-shadow(0 0 15px #6d6d6d);
+
+    & > .site-card__corner-block {
+      display: inline-block;
+    }
+  }
+
+  &__title {
+    display: block;
+    line-height: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &-block {
+      position: relative;
+      padding-top: 101px;
+      text-align: center;
+      color: $white;
+    }
+  }
+
+  &__text {
+    font-weight: $light-weight;
+  }
+
+  &__icon {
+    &-link {
+      display: inline-block;
+      margin-right: 25px;
+      width: 16px;
+      height: 17px;
+      background: url(../../img/icons.png) -47px -246px;
+      vertical-align: middle;
+    }
+
+    &-enlarge {
+      display: inline-block;
+      width: 17px;
+      height: 17px;
+      background: url(../../img/icons.png) -10px -246px;
+      vertical-align: middle;
+    }
+  }
+}

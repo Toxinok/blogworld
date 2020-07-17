@@ -1,0 +1,163 @@
+openapi: 3.0.0
+# Added by API Auto Mocking Plugin
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: ''
+info:
+  description: This is a simple API
+  version: '1.0.0'
+  title: Simple Inventory API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: Articles
+    description: Some list
+paths:
+  /api/articles:
+    get:
+      tags:
+        - Articles
+      summary: get array of articles
+      operationId: searchArticles
+      description: Get articles list
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Article'
+        '400':
+          description: bad input parameter
+    post:
+      tags:
+        - Articles
+      summary: add new article
+      operationId: addArticle
+      description: Add new article
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Article'
+    delete:
+      tags:
+        - Articles
+      summary: delete all articles
+      operationId: deleteArticles
+      description: Delete all articles
+      responses:
+        '201':
+          description: all articles deleted
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Article'
+  /api/articles/{id}:
+    get:
+      tags:
+        - Articles
+      summary: search an article by id
+      operationId: searchArticleByID
+      parameters:
+        - name: id
+          in: path
+          description: ID of article to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      description: Search an article by ID
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Article'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - Articles
+      summary: delete an article by id
+      operationId: deleteArticleByID
+      parameters:
+        - name: id
+          in: path
+          description: ID of article to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+      description: Delete an article by ID
+      responses:
+        '200':
+          description: deletes an element matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Article'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - Articles
+      summary: change description of an article by id
+      operationId: changeArticleDescriptionByID
+      description: Change description of an article by ID
+      parameters:
+        - in: path
+          name: id
+          description: ID of article to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - description
+              properties:
+                description:
+                  type: string
+      responses:
+        '200':
+          description: changed
+        '400':
+          description: bad input value
+components:
+  schemas:
+    Article:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        name:
+          type: string
+          example: Widget Adapter

@@ -1,0 +1,64 @@
+.posts {
+  @include title-block(130px);
+
+  &__main-block {
+    @extend .row;
+
+    @media screen and (max-width: $sm-width) {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  &__article {
+    @media screen and (max-width: $sm-width) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.article {
+  @extend .col-xl-4;
+
+  &__image {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  &__title {
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    line-height: 24px;
+  }
+
+  &__footer {
+    color: #818181;
+  }
+
+  &__dot {
+    display: inline-block;
+    margin: 0 7px;
+    width: 3px;
+    height: 3px;
+    background-color: #818181;
+    vertical-align: middle;
+  }
+
+  &__comments {
+    display: inline-block;
+
+    &-icon {
+      display: inline-block;
+      margin-right: 3px;
+      width: 14px;
+      height: 13px;
+      background: url(../../img/icons.png) -296px -44px;
+      vertical-align: middle;
+    }
+  }
+}
